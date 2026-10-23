@@ -26,9 +26,9 @@ sources:
   rule: "每一課都先研讀指定講義、自修或課本，再提出設計"
 
 website:
-  github_repository: "請填入新專案的 GitHub repository 網址"
-  homepage: "index.html"
-  lesson_data: "data/lessons.js"
+  github_repository: "https://github.com/WilliamKHWang/elementary_school"
+  homepage: "../index.html"
+  lesson_data: "../data/lessons.js"
   video_host: "YouTube"
 
 video:
@@ -56,8 +56,9 @@ characters:
 
 storage:
   tracked:
-    - "index.html"
-    - "data/"
+    - "../index.html"
+    - "../data/"
+    - "../assets/characters/"
     - "assets/"
     - "製作規格與設計說明"
   local_only:

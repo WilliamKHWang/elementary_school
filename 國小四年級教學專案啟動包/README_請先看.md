@@ -10,7 +10,7 @@
 4. 在新的 AI 對話中，先上傳或提供整個專案，再貼上 `提示詞_新聊天直接貼上.md` 的文字。
 5. AI 必須先讀 `START_HERE.md`、製作規格、專案設定與品質檢查表，再開始工作。
 6. 課本與製作中的影片放在 `local-content/`，不要提交 GitHub。
-7. 影片上傳 YouTube 後，只要編輯 `data/lessons.js`，首頁就會顯示新的課程連結。
+7. 影片上傳 YouTube 後，只要編輯 repository 根目錄的 `../data/lessons.js`，首頁就會顯示新的課程連結。
 
 ## 重要檔案
 
@@ -20,8 +20,8 @@
 - `PROJECT_PROFILE.yaml`：可修改的專案資料、角色、聲音與網址。
 - `QUALITY_CHECKLIST.md`：每支影片與首頁上線前的檢查表。
 - `影片設計說明/影片設計說明範本.md`：每一課獨立保存的設計紀錄。
-- `data/lessons.js`：首頁課程清單。
-- `index.html`：可直接開啟的靜態首頁。
+- `../data/lessons.js`：repository 根目錄的首頁課程清單。
+- `../index.html`：repository 根目錄中可直接開啟的靜態首頁，也是 GitHub Pages 入口。
 - `assets/characters/`：固定角色小甯、小霖的原始參考圖。
 - `assets/fugglers/`：首頁使用的吉祥物圖片。
 

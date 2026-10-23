@@ -23,7 +23,7 @@
 5. 所有素材必須為該課全新製作；不得拿舊影片、舊旁白或截圖拼成新影片。
 6. 依 `QUALITY_CHECKLIST.md` 完成內容、畫面、聲音及輸出檢查。
 7. 把該課的設計與實際設定記錄在 `影片設計說明/`。
-8. 使用者上傳 YouTube 後，更新 `data/lessons.js`，並測試 `index.html`。
+8. 使用者上傳 YouTube 後，更新 repository 根目錄的 `../data/lessons.js`，並測試 `../index.html`。
 9. 只有使用者明確要求時，才提交或推送 GitHub。
 
 ## 不可自行改變
