@@ -1,0 +1,26 @@
+.DS_Store
+.env
+.env.*
+
+# 課本、製作中的影片、旁白與其他大型原始素材只留本機。
+/local-content/*
+!/local-content/README.md
+
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.pdf
+
+# 常見暫存與轉檔檔案
+*.tmp
+*.temp
+*.log
+*.bak
+__pycache__/
+.cache/

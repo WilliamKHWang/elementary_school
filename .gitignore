@@ -1,0 +1,26 @@
+.DS_Store
+**/.DS_Store
+
+# 教材、旁白、動畫影格、剪輯暫存與輸出影片只保留在本機。
+**/local-content/*
+!**/local-content/README.md
+
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.pdf
+
+*.tmp
+*.temp
+*.log
+*.bak
+__pycache__/
+.cache/
+.env
+.env.*

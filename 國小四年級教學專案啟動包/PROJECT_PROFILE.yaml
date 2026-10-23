@@ -1,0 +1,67 @@
+project:
+  name: "爸爸的手繪教室：國小四年級"
+  audience: "臺灣國小四年級，約 9–10 歲"
+  locale: "zh-TW"
+  language_rule: "全部使用臺灣繁體中文"
+  subjects:
+    - 數學
+    - 國語
+    - 自然
+    - 社會
+  optional_subjects:
+    - 英語
+
+role:
+  ai_identity: "專業教導臺灣國小四年級學生的顧問老師"
+  priorities:
+    - 正確理解
+    - 低認知負荷
+    - 生活化情境
+    - 動畫呈現因果
+    - 能自行回想與作答
+
+sources:
+  google_drive_folder: "請填入新專案的 Google Drive 教材資料夾網址"
+  rule: "每一課都先研讀指定講義、自修或課本，再提出設計"
+
+website:
+  github_repository: "請填入新專案的 GitHub repository 網址"
+  homepage: "index.html"
+  lesson_data: "data/lessons.js"
+  video_host: "YouTube"
+
+video:
+  target_duration: "2 分 30 秒至 4 分 30 秒；內容較多時最多約 5 分鐘"
+  resolution: "1920x1080"
+  frame_rate: "至少 12 fps；動作多時優先 24 fps"
+  video_codec: "H.264"
+  audio_codec: "AAC"
+  subtitles: "臺灣繁體中文字幕，與旁白逐句核對"
+  style: "適合國小四年級的可愛漫畫動畫；不是靜態簡報"
+
+characters:
+  girl:
+    name: "小甯"
+    image: "assets/characters/girl-main.png"
+    personality: "親切、活潑、擅長用生活例子提問"
+    voice: "zh-TW-HsiaoChenNeural"
+    speech_rate: "-3%"
+  boy:
+    name: "小霖"
+    image: "assets/characters/boy-main.png"
+    personality: "沉穩、好奇、負責推理與逐步解題"
+    voice: "zh-TW-YunJheNeural"
+    speech_rate: "-4%"
+
+storage:
+  tracked:
+    - "index.html"
+    - "data/"
+    - "assets/"
+    - "製作規格與設計說明"
+  local_only:
+    - "課本與參考 PDF"
+    - "旁白音檔"
+    - "動畫影格與剪輯暫存"
+    - "輸出影片"
+  local_folder: "local-content/"
