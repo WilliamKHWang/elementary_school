@@ -4,11 +4,11 @@
 window.LESSONS = [
   {
     grade: "四年級",
-    subject: "數學",
-    unit: "範例單元",
-    title: "第一部教學影片準備中",
-    youtube: "",
-    tags: ["生活情境", "動畫圖解"],
-    status: "planned"
+    subject: "社會",
+    unit: "第一單元 1-1、1-2",
+    title: "家鄉的地圖與運用",
+    youtube: "https://youtu.be/5CRC_tRU_WI",
+    tags: ["地圖判讀", "生活應用"],
+    status: "published"
   }
 ];

@@ -21,7 +21,8 @@ role:
     - 能自行回想與作答
 
 sources:
-  google_drive_folder: "請填入新專案的 Google Drive 教材資料夾網址"
+  google_drive_folder: "https://drive.google.com/drive/u/2/folders/1MZlPx3NQ1JMUCFFAFYkWAM7H5uHFYuhf"
+  google_drive_scope: "只讀取此資料夾及其所有子資料夾與檔案；未經使用者明確同意，不得搜尋或讀取此範圍以外的 Google Drive 內容"
   rule: "每一課都先研讀指定講義、自修或課本，再提出設計"
 
 website:

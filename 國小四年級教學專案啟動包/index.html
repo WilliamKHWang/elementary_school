@@ -1,1513 +1,685 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="fuggler-pink">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>爸爸的手繪教室 | 國小四年級影音學習</title>
-  <meta name="description" content="為臺灣國小四年級學生製作的漫畫動畫教學網站，用生活情境、動態圖解與例題，陪孩子真正看懂課本內容。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Creepster&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#e5383b">
+  <title>爸爸的手繪教室｜小四學習冒險</title>
+  <meta name="description" content="為臺灣國小四年級學生製作的漫畫動畫教學網站，和小甯、小霖一起完成學習任務。">
   <style>
-    /* =============================================
-       爸爸的手繪教室 - ZURU FUGGLER 牙齒怪主題系統
-       6 隻暗巷夜貓（Alley Cats）醜萌牙齒怪專屬主題
-       ============================================= */
-
-    /* ── 共用 Token ── */
     :root {
-      --font-hand: 'Patrick Hand', 'Zen Maru Gothic', 'Noto Sans TC', cursive, sans-serif;
-      --font-body: 'Zen Maru Gothic', 'Noto Sans TC', system-ui, sans-serif;
-      --font-monster: 'Creepster', 'Patrick Hand', cursive;
-      --radius-doodle: 255px 15px 225px 15px / 15px 225px 15px 255px;
-      --radius-card: 20px;
-      --transition: background 0.4s ease, color 0.4s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      --red: #e5383b;
+      --red-dark: #b91c1c;
+      --blue: #2563eb;
+      --blue-dark: #173b73;
+      --yellow: #ffd43b;
+      --green: #31a354;
+      --green-dark: #176b36;
+      --ink: #172033;
+      --muted: #5e6a7d;
+      --paper: #fffdf5;
+      --white: #ffffff;
+      --line: #20283a;
+      --shadow: 0 8px 0 rgba(23, 32, 51, 0.16);
+      --radius: 24px;
+      --font: "Arial Rounded MT Bold", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
     }
 
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 1：粉紅睡衣怪 (Pink Slumber Cat)
-       睡衣排扣 · 垂眼皮 · 歪斜大白牙
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-pink"] {
-      --bg-canvas:      #fff0f5;
-      --bg-board:       #ffffff;
-      --bg-card:        #ffffff;
-      --ink-primary:    #831843;
-      --ink-muted:      #9d174d;
-      --ink-light:      #f472b6;
-      --accent:         #db2777;
-      --accent-bg:      #fce7f3;
-      --accent2:        #9333ea;
-      --accent2-bg:     #fae8ff;
-      --highlight:      #fef08a;
-      --border:         2.5px solid #db2777;
-      --shadow:         5px 6px 0px rgba(219, 39, 119, 0.35);
-      --shadow-hover:   7px 9px 0px rgba(219, 39, 119, 0.55);
-      --bg-pattern:     radial-gradient(#fbcfe8 1.5px, transparent 1.5px);
-      --bg-pattern2:    radial-gradient(#f472b6 1px, transparent 1px);
-      --pattern-size:   24px 24px, 48px 48px;
-      --hero-bg:        #ffffff;
-      --pill-border:    #fbcfe8;
-      --science-hdr:    #fce7f3;
-      --science-card:   #fff5f8;
-      --science-color:  #db2777;
-      --math-hdr:       #fae8ff;
-      --math-card:      #fdf4ff;
-      --math-color:     #9333ea;
-      --tab-bg:         #db2777;
-      --tab-color:      #ffffff;
-      --badge-glow:     rgba(219, 39, 119, 0.4);
-    }
-
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 2：暹羅焦糖怪 (Mocha Siamese Cat)
-       黑炭臉頰 · 烤棉花糖焦糖色 · 瞪大圓眼
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-siamese"] {
-      --bg-canvas:      #f7f2ec;
-      --bg-board:       #ffffff;
-      --bg-card:        #ffffff;
-      --ink-primary:    #3e2723;
-      --ink-muted:      #5d4037;
-      --ink-light:      #8d6e63;
-      --accent:         #795548;
-      --accent-bg:      #efebe9;
-      --accent2:        #d97706;
-      --accent2-bg:     #fef3c7;
-      --highlight:      #ffe082;
-      --border:         2.5px solid #4e342e;
-      --shadow:         5px 6px 0px rgba(78, 52, 46, 0.4);
-      --shadow-hover:   7px 9px 0px rgba(78, 52, 46, 0.65);
-      --bg-pattern:     radial-gradient(#d7ccc8 1.5px, transparent 1.5px);
-      --bg-pattern2:    linear-gradient(45deg, rgba(141, 110, 99, 0.05) 25%, transparent 25%);
-      --pattern-size:   26px 26px, 52px 52px;
-      --hero-bg:        #ffffff;
-      --pill-border:    #d7ccc8;
-      --science-hdr:    #efebe9;
-      --science-card:   #faf7f5;
-      --science-color:  #5d4037;
-      --math-hdr:       #fef3c7;
-      --math-card:      #fffdfa;
-      --math-color:     #b45309;
-      --tab-bg:         #4e342e;
-      --tab-color:      #ffffff;
-      --badge-glow:     rgba(121, 85, 72, 0.4);
-    }
-
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 3：午夜藍毛怪 (Midnight Navy Cat)
-       暗夜巷弄深藍 · 粉紅牙齒項鍊 · 賽博龐克微光
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-blue"] {
-      --bg-canvas:      #0b0d1e;
-      --bg-board:       #12152f;
-      --bg-card:        #181c3e;
-      --ink-primary:    #e0e7ff;
-      --ink-muted:      #a5b4fc;
-      --ink-light:      #6366f1;
-      --accent:         #f43f5e;        /* 項鍊粉紅 */
-      --accent-bg:      #3d0f1f;
-      --accent2:        #38bdf8;        /* 霓虹藍 */
-      --accent2-bg:     #082f49;
-      --highlight:      #1e1b4b;
-      --border:         2.5px solid #6366f1;
-      --shadow:         0 0 16px rgba(99, 102, 241, 0.4), 4px 6px 0 rgba(0, 0, 0, 0.85);
-      --shadow-hover:   0 0 24px rgba(244, 63, 94, 0.6), 6px 8px 0 rgba(0, 0, 0, 0.95);
-      --bg-pattern:     radial-gradient(rgba(129, 140, 248, 0.2) 1.5px, transparent 1.5px);
-      --bg-pattern2:    repeating-linear-gradient(90deg, transparent, transparent 36px, rgba(99, 102, 241, 0.05) 36px, rgba(99, 102, 241, 0.05) 37px);
-      --pattern-size:   28px 28px, auto;
-      --hero-bg:        #12152f;
-      --pill-border:    #4338ca;
-      --science-hdr:    #181c3e;
-      --science-card:   #141736;
-      --science-color:  #818cf8;
-      --math-hdr:       #2a1024;
-      --math-card:      #200c1b;
-      --math-color:     #f43f5e;
-      --tab-bg:         #6366f1;
-      --tab-color:      #ffffff;
-      --badge-glow:     rgba(99, 102, 241, 0.6);
-    }
-
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 4：灰紋落腮鬍 (Striped Grizzle Cat)
-       虎斑灰條紋 · 白胸毛落腮鬍 · 琥珀黃眼露牙
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-gray"] {
-      --bg-canvas:      #141923;
-      --bg-board:       #1b2230;
-      --bg-card:        #232c3d;
-      --ink-primary:    #f8fafc;
-      --ink-muted:      #cbd5e1;
-      --ink-light:      #64748b;
-      --accent:         #eab308;        /* 琥珀金眼 */
-      --accent-bg:      #3f3107;
-      --accent2:        #38bdf8;        /* 銀灰藍 */
-      --accent2-bg:     #0c2e47;
-      --highlight:      #1e293b;
-      --border:         2.5px solid #94a3b8;
-      --shadow:         0 0 14px rgba(234, 179, 8, 0.25), 4px 6px 0 rgba(0, 0, 0, 0.85);
-      --shadow-hover:   0 0 22px rgba(234, 179, 8, 0.5), 6px 8px 0 rgba(0, 0, 0, 0.95);
-      --bg-pattern:     radial-gradient(rgba(148, 163, 184, 0.18) 1.5px, transparent 1.5px);
-      --bg-pattern2:    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(148, 163, 184, 0.03) 20px, rgba(148, 163, 184, 0.03) 40px);
-      --pattern-size:   26px 26px, auto;
-      --hero-bg:        #1b2230;
-      --pill-border:    #475569;
-      --science-hdr:    #232c3d;
-      --science-card:   #1d2535;
-      --science-color:  #facc15;
-      --math-hdr:       #0e2d42;
-      --math-card:      #112233;
-      --math-color:     #38bdf8;
-      --tab-bg:         #94a3b8;
-      --tab-color:      #0f172a;
-      --badge-glow:     rgba(234, 179, 8, 0.5);
-    }
-
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 5：鈕扣眼白怪 (Button-Eye Snow Cat)
-       蓬鬆純白雪球 · 異色鈕扣眼 · 甜粉蝴蝶結
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-white"] {
-      --bg-canvas:      #f8fafc;
-      --bg-board:       #ffffff;
-      --bg-card:        #ffffff;
-      --ink-primary:    #0f172a;
-      --ink-muted:      #334155;
-      --ink-light:      #64748b;
-      --accent:         #ec4899;        /* 蝴蝶結粉 */
-      --accent-bg:      #fce7f3;
-      --accent2:        #6366f1;        /* 鈕扣眼縫線藍 */
-      --accent2-bg:     #e0e7ff;
-      --highlight:      #fef08a;
-      --border:         2.5px solid #0f172a;
-      --shadow:         5px 7px 0px rgba(15, 23, 42, 0.85);
-      --shadow-hover:   7px 9px 0px rgba(15, 23, 42, 1);
-      --bg-pattern:     radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
-      --bg-pattern2:    radial-gradient(#f472b6 1px, transparent 1px);
-      --pattern-size:   24px 24px, 48px 48px;
-      --hero-bg:        #ffffff;
-      --pill-border:    #cbd5e1;
-      --science-hdr:    #fce7f3;
-      --science-card:   #fff7fa;
-      --science-color:  #db2777;
-      --math-hdr:       #e0e7ff;
-      --math-card:      #f7f8ff;
-      --math-color:     #4f46e5;
-      --tab-bg:         #0f172a;
-      --tab-color:      #ffffff;
-      --badge-glow:     rgba(236, 72, 153, 0.4);
-    }
-
-    /* ══════════════════════════════════════════════
-       🐾 牙齒怪 6：橘斑八字鬍 (Ginger Mustache Cat)
-       熱血橘黃虎斑 · 蓬鬆大八字鬍 · 爆棚招牌暴牙
-    ══════════════════════════════════════════════ */
-    [data-theme="fuggler-orange"] {
-      --bg-canvas:      #fff8f0;
-      --bg-board:       #ffffff;
-      --bg-card:        #ffffff;
-      --ink-primary:    #7c2d12;
-      --ink-muted:      #9a3412;
-      --ink-light:      #ea580c;
-      --accent:         #ea580c;
-      --accent-bg:      #ffedd5;
-      --accent2:        #d97706;
-      --accent2-bg:     #fef3c7;
-      --highlight:      #fde047;
-      --border:         2.5px solid #9a3412;
-      --shadow:         5px 6px 0px rgba(154, 52, 18, 0.4);
-      --shadow-hover:   7px 9px 0px rgba(154, 52, 18, 0.65);
-      --bg-pattern:     radial-gradient(#fed7aa 1.5px, transparent 1.5px);
-      --bg-pattern2:    radial-gradient(#f59e0b 1px, transparent 1px);
-      --pattern-size:   24px 24px, 48px 48px;
-      --hero-bg:        #ffffff;
-      --pill-border:    #fdba74;
-      --science-hdr:    #ffedd5;
-      --science-card:   #fffaf5;
-      --science-color:  #c2410c;
-      --math-hdr:       #fef3c7;
-      --math-card:      #fffdf7;
-      --math-color:     #b45309;
-      --tab-bg:         #9a3412;
-      --tab-color:      #ffffff;
-      --badge-glow:     rgba(234, 88, 12, 0.4);
-    }
-
-    /* ══════════════════════════════════════════════
-       全域基礎設定
-    ══════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { transition: var(--transition); scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      background-color: var(--bg-canvas);
-      background-image: var(--bg-pattern), var(--bg-pattern2);
-      background-size: var(--pattern-size);
-      color: var(--ink-primary);
+      margin: 0;
       min-height: 100vh;
-      padding: 20px 20px 70px;
-      transition: background-color 0.45s ease, color 0.4s ease;
-      position: relative;
+      color: var(--ink);
+      font-family: var(--font);
+      background:
+        linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
+        linear-gradient(90deg, rgba(37,99,235,.08) 1px, transparent 1px),
+        linear-gradient(rgba(37,99,235,.08) 1px, transparent 1px),
+        #eaf6ff;
+      background-size: auto, 24px 24px, 24px 24px, auto;
       overflow-x: hidden;
     }
 
-    /* ══════════════════════════════════════════════
-       牙齒怪戰隊選擇列（Fuggler Roster Bar）
-    ══════════════════════════════════════════════ */
-    .fuggler-bar-wrapper {
-      max-width: 960px;
-      margin: 0 auto 20px;
-      background: var(--bg-board);
-      border: var(--border);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow);
-      padding: 14px 20px;
-      transition: var(--transition);
+    button, a { font: inherit; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 4px solid var(--yellow);
+      outline-offset: 4px;
     }
 
-    .fuggler-bar-top {
+    .top-stripe {
+      height: 12px;
+      background: repeating-linear-gradient(90deg, var(--red) 0 48px, var(--red-dark) 48px 96px);
+      border-bottom: 4px solid var(--line);
+    }
+
+    .site-header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 24px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .fuggler-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .fuggler-tag {
-      font-family: var(--font-monster);
-      font-size: 1.15rem;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .theme-active-name {
-      font-family: var(--font-hand);
-      font-size: 0.95rem;
-      font-weight: 700;
-      background: var(--accent-bg);
-      color: var(--accent);
-      padding: 4px 12px;
-      border-radius: 999px;
-      border: 1.5px solid var(--accent);
-    }
-
-    .bar-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    #btnShuffle {
-      font-family: var(--font-hand);
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 7px 16px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      border: 2px solid var(--accent);
-      border-radius: var(--radius-doodle);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-      box-shadow: 2px 3px 0 rgba(0,0,0,0.25);
-      white-space: nowrap;
-    }
-
-    #btnShuffle:hover {
-      transform: translate(-1px, -1px) rotate(-2deg);
-      box-shadow: 3px 5px 0 rgba(0,0,0,0.35);
-    }
-
-    #btnShuffle:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
-    }
-
-    /* 6 隻牙齒怪頭像按鈕列 */
-    .fuggler-roster {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      list-style: none;
-    }
-
-    .roster-btn {
-      background: var(--bg-canvas);
-      border: 2px solid var(--pill-border);
-      border-radius: 14px;
-      padding: 8px 6px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .roster-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      border-color: var(--accent);
-      box-shadow: 0 6px 14px var(--badge-glow);
-    }
-
-    .roster-btn.active {
-      border-color: var(--accent);
-      background: var(--accent-bg);
-      box-shadow: 0 0 0 2px var(--accent), 0 6px 16px var(--badge-glow);
-      transform: translateY(-2px);
-    }
-
-    .roster-btn.active::after {
-      content: '🦷';
-      position: absolute;
-      top: -6px;
-      right: -4px;
-      font-size: 0.85rem;
-      animation: tooth-bounce 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes tooth-bounce {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-3px) rotate(15deg); }
-    }
-
-    .roster-avatar-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border: 1.5px solid rgba(0, 0, 0, 0.1);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .roster-avatar-img {
-      width: 90%;
-      height: 90%;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
-      transition: transform 0.2s ease;
-    }
-
-    .roster-btn:hover .roster-avatar-img {
-      transform: scale(1.15) rotate(4deg);
-    }
-
-    .roster-name {
-      font-family: var(--font-hand);
-      font-size: 0.76rem;
-      font-weight: 700;
-      white-space: nowrap;
-      color: var(--ink-primary);
-      text-align: center;
-      line-height: 1.1;
-    }
-
-    /* ══════════════════════════════════════════════
-       Header
-    ══════════════════════════════════════════════ */
-    header {
-      max-width: 960px;
-      margin: 0 auto 32px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .logo-box {
-      width: 72px;
-      height: 72px;
-      border-radius: var(--radius-doodle);
-      background: var(--bg-board);
-      border: var(--border);
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .logo-box:hover {
-      transform: scale(1.08) rotate(-4deg);
-    }
-
-    .logo-cat-img {
-      width: 82%;
-      height: 82%;
-      object-fit: contain;
-      animation: cat-bob 3s ease-in-out infinite;
-    }
-
-    @keyframes cat-bob {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50%      { transform: translateY(-4px) rotate(3deg); }
-    }
-
-    .logo-tooth-badge {
-      position: absolute;
-      bottom: -4px;
-      right: -4px;
-      font-size: 1.1rem;
-      filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.3));
-    }
-
-    .header-text h1 {
-      font-family: var(--font-monster), var(--font-hand);
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      font-weight: 900;
-      line-height: 1.25;
-      color: var(--ink-primary);
-      position: relative;
-      display: inline-block;
-      letter-spacing: 0.03em;
-      transition: color 0.4s;
-    }
-
-    .header-text h1 .underline {
-      position: relative;
-      z-index: 1;
-    }
-
-    .header-text h1 .underline::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: 2px;
-      width: 100%; height: 10px;
-      background: var(--highlight);
-      z-index: -1;
-      border-radius: 4px;
-      transition: background 0.4s;
-    }
-
-    .header-text p {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      margin-top: 4px;
-      font-family: var(--font-hand);
-      font-weight: 700;
-      transition: color 0.4s;
-    }
-
-    .stamp-badge {
-      margin-left: auto;
-      background: var(--accent2-bg);
-      border: var(--border);
-      border-color: var(--accent2);
-      border-radius: var(--radius-doodle);
-      padding: 8px 16px;
-      font-family: var(--font-hand);
-      font-size: 0.88rem;
-      font-weight: 900;
-      color: var(--accent2);
-      transform: rotate(2deg);
-      box-shadow: 3px 4px 0 rgba(0,0,0,0.25);
-      white-space: nowrap;
-      transition: all 0.4s;
-    }
-
-    /* ══════════════════════════════════════════════
-       Hero Banner（互動牙齒怪對話區）
-    ══════════════════════════════════════════════ */
-    .hero {
-      max-width: 960px;
-      margin: 0 auto 40px;
-      background: var(--hero-bg);
-      border: var(--border);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow);
-      padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 24px;
-      align-items: center;
-      transition: var(--transition);
-    }
-
-    /* 牙齒怪展示主體 */
-    .hero-mascot-wrapper {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .hero-mascot-img {
-      width: 125px;
-      height: 140px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      user-select: none;
-    }
-
-    .hero-mascot-wrapper:hover .hero-mascot-img {
-      transform: scale(1.1) rotate(4deg);
-    }
-
-    .hero-mascot-wrapper:active .hero-mascot-img {
-      transform: scale(0.95) rotate(-6deg);
-    }
-
-    .mascot-click-hint {
-      margin-top: 6px;
-      font-family: var(--font-hand);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--ink-muted);
-      background: var(--bg-canvas);
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px dashed var(--pill-border);
-      white-space: nowrap;
-    }
-
-    /* 對話內容 */
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-bubble-box {
-      background: var(--bg-canvas);
-      border: 2px solid var(--pill-border);
-      border-radius: 16px;
-      padding: 16px 20px;
-      position: relative;
-      margin-bottom: 16px;
-      box-shadow: 2px 3px 0 rgba(0,0,0,0.15);
-    }
-
-    .hero-bubble-box::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 24px;
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-right: 10px solid var(--pill-border);
-    }
-
-    .hero-bubble-box::after {
-      content: '';
-      position: absolute;
-      left: -7px;
-      top: 24px;
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-right: 9px solid var(--bg-canvas);
-    }
-
-    .hero-title {
-      font-family: var(--font-hand);
-      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-      font-weight: 700;
-      line-height: 1.65;
-      color: var(--ink-primary);
-      transition: color 0.4s;
-    }
-
-    .hero-title .hi {
-      color: var(--accent);
-      font-size: 1.2em;
-      font-weight: 900;
-      transition: color 0.4s;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .stat-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-canvas);
-      border: 2px solid var(--pill-border);
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-family: var(--font-hand);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--ink-primary);
-      transition: all 0.4s;
-    }
-
-    .stat-pill .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    /* ══════════════════════════════════════════════
-       Section Title
-    ══════════════════════════════════════════════ */
-    .section-title {
-      max-width: 960px;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-title .tab-label {
-      font-family: var(--font-monster), var(--font-hand);
-      font-size: 1.3rem;
-      font-weight: 900;
-      background: var(--tab-bg);
-      color: var(--tab-color);
-      padding: 6px 22px;
-      border-radius: 12px 12px 0 0;
-      letter-spacing: 0.05em;
-      transition: background 0.4s, color 0.4s;
-    }
-
-    .section-title .grade-label {
-      font-family: var(--font-hand);
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      font-weight: 700;
-      transition: color 0.4s;
-    }
-
-    /* ══════════════════════════════════════════════
-       Subject Groups
-    ══════════════════════════════════════════════ */
-    .subjects-wrapper {
-      max-width: 960px;
-      margin: 0 auto 48px;
-    }
-
-    .subject-group {
-      background: var(--bg-board);
-      border: var(--border);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow);
-      margin-bottom: 32px;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .subject-header {
+    .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 18px 24px;
-      border-bottom: 2px solid var(--pill-border);
-      transition: background 0.4s, border-color 0.4s;
+      min-width: 0;
+    }
+
+    .mini-orb, .capture-orb {
+      position: relative;
+      overflow: hidden;
+      border: 4px solid var(--line);
+      border-radius: 50%;
+      background: linear-gradient(to bottom, var(--red) 0 44%, var(--line) 44% 56%, var(--white) 56% 100%);
+      flex: 0 0 auto;
+    }
+
+    .mini-orb {
+      width: 56px;
+      height: 56px;
+      box-shadow: 0 5px 0 rgba(23,32,51,.18);
+    }
+
+    .mini-orb::after, .capture-orb::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 25%;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border: 4px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: inset 0 0 0 4px #d9e1ea;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: .02em;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .progress-chip {
+      padding: 9px 15px;
+      color: var(--blue-dark);
+      font-size: .88rem;
+      font-weight: 900;
+      background: var(--white);
+      border: 3px solid var(--blue-dark);
+      border-radius: 999px;
+      box-shadow: 0 4px 0 rgba(23,59,115,.16);
+      white-space: nowrap;
+    }
+
+    main { padding: 0 24px 70px; }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      max-width: 1120px;
+      min-height: 420px;
+      margin: 8px auto 42px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 28px;
+      padding: clamp(28px, 5vw, 58px);
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 30%, rgba(255,255,255,.19) 0 70px, transparent 71px),
+        linear-gradient(135deg, #173b73 0%, #2563eb 55%, #1685c8 100%);
+      border: 5px solid var(--line);
+      border-radius: 34px;
+      box-shadow: 0 12px 0 rgba(23,32,51,.2);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: auto -9% -50% 35%;
+      height: 92%;
+      transform: rotate(-8deg);
+      background: rgba(49,163,84,.92);
+      border: 5px solid var(--line);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      padding: 7px 13px;
+      color: var(--ink);
+      font-size: .84rem;
+      font-weight: 900;
+      background: var(--yellow);
+      border: 3px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 4px 0 rgba(23,32,51,.22);
+    }
+
+    .hero h2 {
+      max-width: 640px;
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+      text-shadow: 0 5px 0 rgba(23,32,51,.25);
+    }
+
+    .hero-copy > p {
+      max-width: 650px;
+      margin: 20px 0 0;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      color: var(--ink);
+      font-weight: 900;
+      text-decoration: none;
+      background: var(--yellow);
+      border: 3px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 6px 0 rgba(23,32,51,.28);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 0 rgba(23,32,51,.28);
+    }
+
+    .hero-note { font-size: .86rem; font-weight: 800; opacity: .9; }
+
+    .trainer-stage {
+      position: relative;
+      align-self: stretch;
+      min-height: 310px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+    }
+
+    .trainer-stage::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      bottom: 20px;
+      width: 92%;
+      height: 72px;
+      transform: translateX(-50%);
+      background: rgba(12,78,43,.35);
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .trainer {
+      width: min(62%, 260px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 0 rgba(23,32,51,.28));
+    }
+
+    .trainer.girl { margin-right: -20%; transform: rotate(-3deg); }
+    .trainer.boy { margin-left: -16%; transform: rotate(3deg); }
+
+    .capture-orb {
+      position: absolute;
+      right: 4%;
+      top: 4%;
+      width: 92px;
+      height: 92px;
+      animation: orb-float 3s ease-in-out infinite;
+      box-shadow: 0 9px 0 rgba(23,32,51,.22);
+    }
+
+    @keyframes orb-float {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-12px) rotate(6deg); }
+    }
+
+    .quest-head {
+      max-width: 1120px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .quest-kicker {
+      margin: 0 0 6px;
+      color: var(--red-dark);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .quest-head h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 2.35rem);
+    }
+
+    .quest-head > p {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+      line-height: 1.65;
+      text-align: right;
+    }
+
+    .subjects {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .subject {
+      overflow: hidden;
+      background: var(--white);
+      border: 4px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .subject-header {
+      min-height: 104px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-bottom: 4px solid var(--line);
+    }
+
+    .subject-social .subject-header {
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.08) 50%, transparent 50%),
+        var(--green);
+      background-size: 24px 24px, auto;
     }
 
     .subject-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
       font-size: 2rem;
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      border: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: var(--bg-canvas);
-      box-shadow: 3px 4px 0 rgba(0,0,0,0.25);
-      transition: all 0.4s;
+      background: var(--white);
+      border: 3px solid var(--line);
+      border-radius: 50%;
+      box-shadow: 0 5px 0 rgba(23,32,51,.22);
     }
 
-    .subject-info h2 {
-      font-family: var(--font-monster), var(--font-hand);
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      transition: color 0.4s;
-    }
-
-    .subject-info p {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      margin-top: 2px;
-      font-family: var(--font-hand);
-      transition: color 0.4s;
-    }
+    .subject-info h3 { margin: 0; font-size: 1.45rem; }
+    .subject-info p { margin: 5px 0 0; font-size: .88rem; font-weight: 700; opacity: .92; }
 
     .subject-count {
       margin-left: auto;
-      font-family: var(--font-hand);
-      font-size: 0.85rem;
+      padding: 7px 12px;
+      color: var(--green-dark);
+      font-size: .8rem;
       font-weight: 900;
-      padding: 4px 14px;
+      background: var(--white);
+      border: 3px solid var(--line);
       border-radius: 999px;
-      border: 2px solid;
-      background: var(--bg-canvas);
-      transition: all 0.4s;
+      white-space: nowrap;
     }
 
-    /* 國語與自然 */
-    .group-science .subject-header { background: var(--science-hdr); }
-    .group-science .subject-info h2 { color: var(--science-color); }
-    .group-science .subject-count { color: var(--science-color); border-color: var(--science-color); }
-    .group-science .lesson-card  { background: var(--science-card); }
-
-    /* 數學 */
-    .group-math .subject-header { background: var(--math-hdr); }
-    .group-math .subject-info h2 { color: var(--math-color); }
-    .group-math .subject-count  { color: var(--math-color); border-color: var(--math-color); }
-    .group-math .lesson-card    { background: var(--math-card); }
-
-    /* ══════════════════════════════════════════════
-       Lesson Cards
-    ══════════════════════════════════════════════ */
     .lessons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-      padding: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      padding: 22px;
+      background: var(--paper);
     }
 
     .lesson-card {
-      border: var(--border);
-      border-radius: 18px;
-      padding: 22px;
-      cursor: pointer;
-      text-decoration: none;
-      color: var(--ink-primary);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.4s, border-color 0.4s;
-      box-shadow: var(--shadow);
       position: relative;
-      display: block;
+      min-height: 205px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px;
       overflow: hidden;
+      color: var(--ink);
+      text-decoration: none;
+      background:
+        radial-gradient(circle at 86% 20%, rgba(255,212,59,.55) 0 38px, transparent 39px),
+        var(--white);
+      border: 3px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 6px 0 rgba(23,32,51,.15);
+      transition: transform .16s ease, box-shadow .16s ease;
     }
 
-    .lesson-card:hover {
-      transform: translate(-3px, -3px) rotate(-0.5deg);
-      box-shadow: var(--shadow-hover);
+    .lesson-card:not(.coming-soon):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 0 rgba(23,32,51,.18);
     }
 
-    .lesson-card:active {
-      transform: translate(2px, 2px);
-    }
-
-    .lesson-card .card-chapter {
-      font-family: var(--font-hand);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      opacity: 0.75;
-      margin-bottom: 6px;
+    .card-chapter {
       display: flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .card-fuggler-stamp {
-      font-size: 0.72rem;
-      background: var(--accent-bg);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      padding: 1px 7px;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .8rem;
       font-weight: 900;
     }
 
-    .lesson-card .card-title {
-      font-family: var(--font-monster), var(--font-hand);
-      font-size: 1.3rem;
+    .grade-stamp {
+      padding: 3px 8px;
+      color: var(--white);
+      background: var(--blue);
+      border: 2px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .card-title {
+      max-width: 82%;
+      margin-top: 13px;
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
       font-weight: 900;
       line-height: 1.35;
-      margin-bottom: 12px;
-      letter-spacing: 0.03em;
     }
 
-    .lesson-card .card-tags {
+    .card-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 7px;
+      margin: 14px 0 18px;
     }
 
     .tag {
-      font-family: var(--font-hand);
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 3px 10px;
+      padding: 4px 9px;
+      color: var(--green-dark);
+      font-size: .74rem;
+      font-weight: 900;
+      background: #e7f8ec;
+      border: 2px solid var(--green);
       border-radius: 999px;
-      border: 1.5px solid currentColor;
     }
 
-    .lesson-card .card-arrow {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      font-size: 1.4rem;
-      opacity: 0.5;
-      transition: opacity 0.18s, transform 0.18s;
-    }
-
-    .lesson-card:hover .card-arrow {
-      opacity: 1;
-      transform: translateX(5px) scale(1.15);
-    }
-
-    /* Coming Soon Cards */
-    .lesson-card.coming-soon {
-      opacity: 0.6;
-      cursor: default;
-      background-image: repeating-linear-gradient(
-        -45deg, transparent, transparent 12px,
-        rgba(128,128,128,0.05) 12px, rgba(128,128,128,0.05) 24px
-      );
-    }
-
-    .lesson-card.coming-soon:hover {
-      transform: none;
-      box-shadow: var(--shadow);
-    }
-
-    .coming-badge {
-      display: inline-block;
-      font-family: var(--font-hand);
-      font-size: 0.74rem;
-      font-weight: 700;
-      background: var(--bg-canvas);
-      border: 1.5px dashed var(--ink-light);
-      border-radius: 999px;
-      padding: 2px 10px;
-      color: var(--ink-muted);
-      margin-bottom: 8px;
-      transition: all 0.4s;
-    }
-
-    /* ══════════════════════════════════════════════
-       右下角漂浮伴讀牙齒怪 (Floating Mascot)
-    ══════════════════════════════════════════════ */
-    .corner-monster {
-      position: fixed;
-      bottom: 20px;
-      right: 24px;
-      z-index: 100;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
+    .watch-label {
+      margin-top: auto;
+      display: inline-flex;
       align-items: center;
-      transition: transform 0.2s ease;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+      gap: 7px;
+      color: var(--red-dark);
+      font-size: .9rem;
+      font-weight: 900;
     }
 
-    .corner-monster:hover {
-      transform: translateY(-8px) scale(1.08);
+    .watch-label::before {
+      content: "▶";
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-size: .7rem;
+      background: var(--red);
+      border: 2px solid var(--line);
+      border-radius: 50%;
     }
 
-    .corner-bubble {
-      background: var(--bg-board);
-      color: var(--ink-primary);
-      border: 2px solid var(--accent);
-      border-radius: 12px;
-      padding: 5px 10px;
-      font-family: var(--font-hand);
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-      box-shadow: 2px 3px 0 rgba(0,0,0,0.2);
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0.95;
-      animation: bubble-float 2s ease-in-out infinite alternate;
+    .locked-area {
+      max-width: 1120px;
+      margin: 34px auto 0;
     }
 
-    @keyframes bubble-float {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-3px); }
+    .locked-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .corner-monster-img {
-      width: 72px;
-      height: 82px;
-      object-fit: contain;
-      user-select: none;
-      animation: corner-wiggle 4s ease-in-out infinite;
+    .locked-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    @keyframes corner-wiggle {
-      0%, 100% { transform: rotate(-3deg); }
-      50%      { transform: rotate(4deg); }
+    .locked-subject {
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 19px;
+      color: #647084;
+      background: rgba(255,255,255,.72);
+      border: 3px dashed #97a3b5;
+      border-radius: 20px;
     }
 
-    /* ══════════════════════════════════════════════
-       Footer
-    ══════════════════════════════════════════════ */
+    .locked-subject .subject-icon {
+      width: 52px;
+      height: 52px;
+      font-size: 1.5rem;
+      filter: grayscale(1);
+      opacity: .72;
+      box-shadow: none;
+    }
+
+    .locked-subject h3 { margin: 0; font-size: 1.05rem; }
+    .locked-subject p { margin: 6px 0 0; font-size: .78rem; font-weight: 800; }
+
     footer {
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      font-family: var(--font-hand);
-      font-size: 0.92rem;
-      color: var(--ink-muted);
-      transition: color 0.4s;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
+      padding: 28px 24px 36px;
+      color: var(--muted);
+      font-size: .8rem;
       font-weight: 700;
-      transition: color 0.4s;
+      line-height: 1.8;
+      text-align: center;
+      background: var(--white);
+      border-top: 4px solid var(--line);
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    footer p { margin: 4px 0; }
+    footer a { color: var(--blue-dark); font-weight: 900; }
+
+    @media (max-width: 760px) {
+      .site-header { align-items: flex-start; }
+      .progress-chip { display: none; }
+      main { padding-inline: 14px; }
+      .hero { grid-template-columns: 1fr; padding: 30px 24px 20px; }
+      .hero h2 { font-size: clamp(2.2rem, 13vw, 3.5rem); }
+      .trainer-stage { min-height: 245px; }
+      .capture-orb { width: 72px; height: 72px; }
+      .quest-head { align-items: flex-start; flex-direction: column; }
+      .quest-head > p { text-align: left; }
+      .subject-header { align-items: flex-start; flex-wrap: wrap; }
+      .subject-count { margin-left: 0; }
+      .lessons-grid { grid-template-columns: 1fr; padding: 14px; }
+      .locked-grid { grid-template-columns: 1fr; }
     }
 
-    .fuggler-footer-note {
-      margin-top: 6px;
-      font-size: 0.78rem;
-      opacity: 0.75;
-    }
-
-    /* ══════════════════════════════════════════════
-       RWD（iPad 與手機支援）
-    ══════════════════════════════════════════════ */
-    @media (min-width: 601px) and (max-width: 1024px) {
-      body { padding: 18px 20px 80px; }
-      .hero { padding: 24px; gap: 20px; }
-      .hero-mascot-img { width: 110px; height: 125px; }
-      .lessons-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .lesson-card { padding: 20px; min-height: 130px; }
-      .roster-btn { padding: 6px 4px; }
-      .roster-avatar-box { width: 42px; height: 42px; }
-      .corner-monster-img { width: 64px; height: 74px; }
-    }
-
-    @media (max-width: 600px) {
-      header { flex-wrap: wrap; gap: 12px; }
-      .stamp-badge { margin-left: 0; }
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 20px 16px;
-        text-align: center;
-      }
-      .hero-mascot-wrapper { margin-bottom: 8px; }
-      .hero-bubble-box::before, .hero-bubble-box::after { display: none; }
-      .hero-stats { justify-content: center; }
-      .fuggler-roster {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-      }
-      .lessons-grid { grid-template-columns: 1fr; padding: 16px; }
-      .subject-header { flex-wrap: wrap; }
-      .corner-monster { bottom: 12px; right: 12px; }
-      .corner-monster-img { width: 56px; height: 64px; }
-      .corner-bubble { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
+  <div class="top-stripe" aria-hidden="true"></div>
 
-  <!-- ── 牙齒怪戰隊選擇列 ── -->
-  <div class="fuggler-bar-wrapper">
-    <div class="fuggler-bar-top">
-      <div class="fuggler-brand">
-        <span class="fuggler-tag">🦷 FUGGLER 暗巷夜貓</span>
-        <span class="theme-active-name" id="themeActiveName">💖 粉紅睡衣怪</span>
-      </div>
-      <div class="bar-actions">
-        <button id="btnShuffle" title="隨機召喚一隻牙齒怪！">🎲 隨機牙齒怪</button>
+  <header class="site-header">
+    <div class="brand">
+      <div class="mini-orb" aria-hidden="true"></div>
+      <div>
+        <h1>爸爸的手繪教室</h1>
+        <p>國小四年級・漫畫動畫學習基地</p>
       </div>
     </div>
-
-    <!-- 6 隻牙齒怪點選頭像按鈕 -->
-    <ul class="fuggler-roster" id="fugglerRoster" role="tablist">
-      <!-- 由 JS 動態產生或載入 -->
-    </ul>
-  </div>
-
-  <!-- ── Header ── -->
-  <header>
-    <div class="logo-box" id="logoBox" title="點我聽牙齒怪咬一口！">
-      <img id="logoCatImg" src="assets/fugglers/fuggler_pink.png" class="logo-cat-img" alt="牙齒怪頭像" />
-      <span class="logo-tooth-badge">🦷</span>
-    </div>
-    <div class="header-text">
-      <h1><span class="underline" id="siteTitle">爸爸的手繪教室</span></h1>
-      <p id="siteSubtitle">用動畫圖解，陪你看懂每一道題 🎯</p>
-    </div>
-    <div class="stamp-badge" id="stampBadge">🐾 放克牙寶 牙齒怪</div>
+    <div class="progress-chip" id="progressChip">冒險進度：載入中</div>
   </header>
 
-  <!-- ── Hero Banner（牙齒怪對話區） ── -->
-  <div class="hero">
-    <div class="hero-mascot-wrapper" id="heroMascotBox" title="戳一下牙齒怪！">
-      <img id="heroMascotImg" src="assets/fugglers/fuggler_pink.png" alt="當前主題牙齒怪" class="hero-mascot-img" />
-      <span class="mascot-click-hint">戳我咬一口 🦷</span>
-    </div>
-    <div class="hero-content">
-      <div class="hero-bubble-box">
-        <p class="hero-title" id="heroTitle">
-          <span class="hi">哈囉小主人！</span>我是粉紅睡衣牙齒怪 🦷💕<br>
-          每一個單元都是爸爸精心錄製的<strong>手繪動畫影片</strong>，配音、圖解、例題一次搞定。<br>
-          跟我一起把課本難題咬碎吞下去，不懂的地方隨時暫停反覆看！💪
-        </p>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-pill">
-          <span class="dot" style="background:var(--science-color)"></span>
-          國小四年級
-        </div>
-        <div class="stat-pill">
-          <span class="dot" style="background:var(--math-color)"></span>
-          四大學科
-        </div>
-        <div class="stat-pill">
-          <span class="dot" style="background:var(--accent)"></span>
-          持續更新中 🔄
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">⚡ 今日任務已開放</div>
+        <h2 id="hero-title">出發！<br>小四學習冒險</h2>
+        <p>和小甯、小霖一起從生活情境出發，用漫畫動畫看懂課本重點。完成一個單元，就收服一項新知識！</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#social-quest">前往社會任務</a>
+          <span class="hero-note">🎬 可暫停、可重播，照自己的速度學</span>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ── 國小四年級 ── -->
-  <div class="section-title">
-    <div class="tab-label">小四</div>
-    <div class="grade-label">Grade 4 • 四年級</div>
-  </div>
-
-  <div class="subjects-wrapper">
-
-    <!-- 數學 -->
-    <div class="subject-group group-math">
-      <div class="subject-header">
-        <div class="subject-icon">📐</div>
-        <div class="subject-info">
-          <h2>數學</h2>
-          <p>操作・圖解・逐步算式 — 把抽象概念變得看得見</p>
-        </div>
-        <div class="subject-count" id="count-math">0 個單元</div>
+      <div class="trainer-stage" aria-label="學習夥伴小甯與小霖">
+        <img class="trainer girl" src="assets/characters/girl-main.png" alt="小甯">
+        <img class="trainer boy" src="assets/characters/boy-main.png" alt="小霖">
+        <div class="capture-orb" aria-hidden="true"></div>
       </div>
-      <div class="lessons-grid" id="lessons-math"></div>
-    </div>
+    </section>
 
-    <!-- 國語 -->
-    <div class="subject-group group-science">
-      <div class="subject-header">
-        <div class="subject-icon">📖</div>
-        <div class="subject-info">
-          <h2>國語</h2>
-          <p>課文理解・字詞・閱讀策略 — 情境漫畫陪讀</p>
+    <section aria-labelledby="quest-title">
+      <div class="quest-head">
+        <div>
+          <p class="quest-kicker">AVAILABLE QUEST</p>
+          <h2 id="quest-title">目前可挑戰的課程</h2>
         </div>
-        <div class="subject-count" id="count-chinese">0 個單元</div>
+        <p>先完成已開放的社會任務。其他學科會在新影片完成後依序解鎖。</p>
       </div>
-      <div class="lessons-grid" id="lessons-chinese"></div>
-    </div>
 
-    <!-- 自然 -->
-    <div class="subject-group group-science">
-      <div class="subject-header">
-        <div class="subject-icon">🔬</div>
-        <div class="subject-info">
-          <h2>自然</h2>
-          <p>觀察・實驗・因果關係 — 把看不見的過程動畫化</p>
-        </div>
-        <div class="subject-count" id="count-science">0 個單元</div>
+      <div class="subjects">
+        <article class="subject subject-social" id="social-quest">
+          <div class="subject-header">
+            <div class="subject-icon" aria-hidden="true">🌏</div>
+            <div class="subject-info">
+              <h3>社會</h3>
+              <p>地圖・家鄉・生活制度｜用故事建立完整脈絡</p>
+            </div>
+            <div class="subject-count" id="count-social">0 個單元</div>
+          </div>
+          <div class="lessons-grid" id="lessons-social"></div>
+        </article>
       </div>
-      <div class="lessons-grid" id="lessons-science"></div>
-    </div>
+    </section>
 
-    <!-- 社會 -->
-    <div class="subject-group group-math">
-      <div class="subject-header">
-        <div class="subject-icon">🌏</div>
-        <div class="subject-info">
-          <h2>社會</h2>
-          <p>時間線・地圖・生活制度 — 用故事建立完整脈絡</p>
-        </div>
-        <div class="subject-count" id="count-social">0 個單元</div>
+    <section class="locked-area" aria-labelledby="locked-title">
+      <h2 class="locked-title" id="locked-title">🔒 等待解鎖的學科</h2>
+      <div class="locked-grid">
+        <article class="locked-subject">
+          <div class="subject-icon" aria-hidden="true">📐</div>
+          <div><h3>數學</h3><p>新課程準備中</p></div>
+        </article>
+        <article class="locked-subject">
+          <div class="subject-icon" aria-hidden="true">📖</div>
+          <div><h3>國語</h3><p>新課程準備中</p></div>
+        </article>
+        <article class="locked-subject">
+          <div class="subject-icon" aria-hidden="true">🔬</div>
+          <div><h3>自然</h3><p>新課程準備中</p></div>
+        </article>
       </div>
-      <div class="lessons-grid" id="lessons-social"></div>
-    </div>
+    </section>
+  </main>
 
-  </div>
-
-  <!-- ── 伴讀浮動牙齒怪 ── -->
-  <div class="corner-monster" id="cornerMonster" title="戳我咬一口！">
-    <div class="corner-bubble" id="cornerBubble">咬碎題目！🦷</div>
-    <img id="cornerMonsterImg" class="corner-monster-img" src="assets/fugglers/fuggler_pink.png" alt="伴讀牙齒怪" />
-  </div>
-
-  <!-- ── Footer ── -->
   <footer>
-    <p>用 ❤️ 親手打造，for my kid ·
-      <a href="https://github.com/USERNAME/elementary_school" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </p>
-    <p class="fuggler-footer-note">
-      🐾 特色主題：ZURU FUGGLER 放克牙寶「暗巷夜貓 (Alley Cats)」醜萌牙齒怪系列
-    </p>
+    <p>用 ❤️ 親手打造，陪孩子一步一步看懂課本・<a href="https://github.com/WilliamKHWang/elementary_school" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <p>本頁為非官方學習網站；視覺靈感來自怪獸收集冒險遊戲，未使用官方角色、標誌或素材。</p>
   </footer>
 
-  <!-- ══════════════════════════════════════════
-       牙齒怪主題系統 JavaScript
-  ══════════════════════════════════════════ -->
   <script src="data/lessons.js"></script>
   <script>
-    // 6 隻暗巷夜貓牙齒怪主題資料配置
-    const FUGGLER_THEMES = [
-      {
-        id: 'fuggler-pink',
-        name: '💖 粉紅睡衣怪',
-        shortName: '粉紅睡衣',
-        img: 'assets/fugglers/fuggler_pink.png',
-        subtitle: '穿睡衣也有一整排大真牙！🦷💤',
-        badge: '🐾 睡衣牙齒怪',
-        heroMsg: '<span class="hi">哈囉小主人！</span>我是粉紅睡衣牙齒怪 🦷💕<br>雖然我眼睛睜不太開，但我的腦袋可靈光了！<br>快跟我一起把課本重點咬碎吞下去，不懂的地方反覆看就通囉！💪',
-        quotes: [
-          '🦷 嘎吱嘎吱～知識真好吃！',
-          '你有看到我整齊漂亮的白牙齒嗎？😁',
-          '這題連我這隻怪獸都能算出來！',
-          '雖然我很醜，但我解題超溫柔～💕',
-          '穿著睡衣也要拿滿分！衝呀！'
-        ]
-      },
-      {
-        id: 'fuggler-siamese',
-        name: '🍫 暹羅焦糖怪',
-        shortName: '暹羅焦糖',
-        img: 'assets/fugglers/fuggler_siamese.png',
-        subtitle: '臉黑不是曬黑的，是讀書烤焦的！😼🦷',
-        badge: '🐾 焦糖牙齒怪',
-        heroMsg: '<span class="hi">喵～牙齒露出來！</span>我是暹羅焦糖牙齒怪 🍫🦷<br>專治各種想不通的魔王題，跟著我的節奏，一步一步把難題啃光光！<br>遇到考試不要慌，露出大牙笑一個！😼',
-        quotes: [
-          '臉黑是讀書烤焦的，牙齒白是認真的！🦷',
-          '咬一口課本，滿滿的知識焦糖香～🍫',
-          '別看我眼睛呆呆的，找重點快得很！',
-          '把所有不會的題目，統統交給我咬爛！',
-          '讀累了記得吃塊巧克力補充腦力！'
-        ]
-      },
-      {
-        id: 'fuggler-blue',
-        name: '🌙 午夜藍毛怪',
-        shortName: '午夜藍毛',
-        img: 'assets/fugglers/fuggler_blue.png',
-        subtitle: '看到我的項鍊沒？那是一顆大板牙！🦷⚡',
-        badge: '🐾 午夜牙齒怪',
-        heroMsg: '<span class="hi">暗夜出擊！</span>我是午夜藍毛牙齒怪 🌙🦷<br>脖子上掛著招牌牙齒項鍊，在你需要時陪你複習！<br>今天也要帥氣學會一個新重點，把知識記得牢牢的！⚡',
-        quotes: [
-          '看到我的項鍊沒？正宗猛獸大板牙！🦷',
-          '暗巷夜貓出動，專抓考題裡的線索！🌙',
-          '深藍毛皮配粉紅項圈，這就是時尚！',
-          '不懂就多聽兩次語音朗讀，保證秒懂！',
-          '夜深了，但我們的鬥志正高昂！🔥'
-        ]
-      },
-      {
-        id: 'fuggler-gray',
-        name: '🐾 灰紋落腮鬍',
-        shortName: '灰紋大鬍',
-        img: 'assets/fugglers/fuggler_gray.png',
-        subtitle: '別摸我的大鬍子，我正在專心解題！😼📐',
-        badge: '🐾 大鬍牙齒怪',
-        heroMsg: '<span class="hi">咳咳！</span>老夫是灰紋落腮鬍牙齒怪 🐾🦷<br>雖然長得兇巴巴，但教起功課可是頂呱呱！<br>遇到看不懂的題目，先找線索再一步一步想！一把鬍子一把智慧！📐',
-        quotes: [
-          '別拔我的大白鬍子，這叫宗師氣派！😼',
-          '先圈關鍵字，再把題目一步一步拆開！',
-          '我的琥珀色貓眼，能看穿一切考題陷阱！',
-          '老夫當年也是考卷咬滿分的狠角色！',
-          '認真看完影片，保證你比我還厲害！'
-        ]
-      },
-      {
-        id: 'fuggler-white',
-        name: '🤍 鈕扣眼白怪',
-        shortName: '鈕扣眼白',
-        img: 'assets/fugglers/fuggler_white.png',
-        subtitle: '歪頭殺～我的鈕扣眼睛最會抓題目盲點！🎀🦷',
-        badge: '🐾 鈕扣牙齒怪',
-        heroMsg: '<span class="hi">歪頭殺～</span>我是鈕扣眼白白怪 🤍🦷<br>繫著漂亮粉紅蝴蝶結，露出歪斜的小白牙～<br>學習不用壓力大，笑一笑、深呼吸，跟著爸爸的手繪動畫一起輕鬆懂！🎀',
-        quotes: [
-          '我的鈕扣眼睛，能把重點釘在腦海裡！🎀',
-          '雖然我的牙齒歪歪的，但心靈很美麗！',
-          '粉紅蝴蝶結是為了慶祝今天又學會新單元！',
-          '笑一個嘛～露出你的牙齒跟我比整齊！😁',
-          '手繪白板動畫超好看，再看一次吧！'
-        ]
-      },
-      {
-        id: 'fuggler-orange',
-        name: '🍊 橘斑八字鬍',
-        shortName: '橘斑八字',
-        img: 'assets/fugglers/fuggler_orange.png',
-        subtitle: '八字鬍翹高高，今天段考一定得高分！🦁🦷',
-        badge: '🐾 八字鬍牙怪',
-        heroMsg: '<span class="hi">喵哈哈哈！</span>我是橘斑八字鬍牙齒怪 🍊🦷<br>頂著超蓬鬆白白八字鬍和整齊暴牙，熱血幫你加滿元氣！<br>難題遇到我都得繞路走，衝刺前進拿滿分！💥',
-        quotes: [
-          '八字鬍翹起來，段考滿分自然來！🍊',
-          '咬一口甜甜橘子，再解一題功課！',
-          '暴牙才是帥哥的象徵，你說對不對！🦷',
-          '熱血燃燒中！慢慢想也能找到答案！',
-          '我是最強橘貓，飯要吃飽，書也要讀好！'
-        ]
-      }
-    ];
-
-    // Web Audio 合成趣味咬牙「咔擦/啵」音效（純 JS，無需外連檔案）
-    function playChompSound() {
-      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) return;
-        const ctx = new AudioContext();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(360, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.2, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.1);
-      } catch (e) {
-        // 忽略無音訊支援環境
-      }
-    }
-
-    // 動態建構 6 隻牙齒怪的頭像選擇列表
-    function renderRoster() {
-      const rosterList = document.getElementById('fugglerRoster');
-      rosterList.innerHTML = '';
-
-      FUGGLER_THEMES.forEach((theme, index) => {
-        const li = document.createElement('li');
-        const btn = document.createElement('button');
-        btn.className = 'roster-btn';
-        btn.id = `rosterBtn_${theme.id}`;
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('title', `切換成 ${theme.name}`);
-        btn.setAttribute('aria-label', theme.name);
-
-        btn.innerHTML = `
-          <div class="roster-avatar-box">
-            <img class="roster-avatar-img" src="${theme.img}" alt="${theme.name}" />
-          </div>
-          <span class="roster-name">${theme.shortName}</span>
-        `;
-
-        btn.addEventListener('click', () => {
-          playChompSound();
-          applyFugglerTheme(theme);
-        });
-
-        li.appendChild(btn);
-        rosterList.appendChild(li);
-      });
-    }
-
-    // 套用特定牙齒怪主題
-    function applyFugglerTheme(theme, skipSave) {
-      const html = document.documentElement;
-      html.setAttribute('data-theme', theme.id);
-
-      // 更新頂部文字與頭像
-      document.getElementById('themeActiveName').textContent = theme.name;
-      document.getElementById('siteSubtitle').textContent    = theme.subtitle;
-      document.getElementById('stampBadge').textContent      = theme.badge;
-      document.getElementById('heroTitle').innerHTML         = theme.heroMsg;
-
-      // 更新各處圖片
-      const logoImg = document.getElementById('logoCatImg');
-      if (logoImg) logoImg.src = theme.img;
-
-      const heroImg = document.getElementById('heroMascotImg');
-      if (heroImg) {
-        heroImg.src = theme.img;
-        heroImg.style.transform = 'scale(0.85) rotate(-8deg)';
-        setTimeout(() => { heroImg.style.transform = ''; }, 250);
-      }
-
-      const cornerImg = document.getElementById('cornerMonsterImg');
-      if (cornerImg) cornerImg.src = theme.img;
-
-      // 更新頭像按鈕選取狀態
-      document.querySelectorAll('.roster-btn').forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
-      });
-      const activeBtn = document.getElementById(`rosterBtn_${theme.id}`);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-        activeBtn.setAttribute('aria-selected', 'true');
-      }
-
-      // 儲存狀態
-      if (!skipSave) {
-        localStorage.setItem('fugglerThemeId', theme.id);
-        localStorage.setItem('fugglerThemeDate', new Date().toDateString());
-      }
-    }
-
-    // 每日自動計算主題索引
-    function getDailyThemeIndex() {
-      const today = new Date();
-      const dayOfYear = Math.floor(
-        (today - new Date(today.getFullYear(), 0, 0)) / 86400000
-      );
-      return dayOfYear % FUGGLER_THEMES.length;
-    }
-
-    // 載入預設或已存主題
-    function initTheme() {
-      renderRoster();
-
-      const savedId   = localStorage.getItem('fugglerThemeId');
-      const savedDate = localStorage.getItem('fugglerThemeDate');
-      const todayStr  = new Date().toDateString();
-
-      // 若今天使用者已主動選擇，優先使用
-      if (savedId && savedDate === todayStr) {
-        const found = FUGGLER_THEMES.find(t => t.id === savedId);
-        if (found) {
-          applyFugglerTheme(found, true);
-          return;
-        }
-      }
-
-      // 否則使用每日自動輪播
-      const dailyIndex = getDailyThemeIndex();
-      applyFugglerTheme(FUGGLER_THEMES[dailyIndex], true);
-    }
-
-    // 隨機按鈕 Shuffle
-    document.getElementById('btnShuffle').addEventListener('click', () => {
-      playChompSound();
-      const currentId = document.documentElement.getAttribute('data-theme');
-      const others = FUGGLER_THEMES.filter(t => t.id !== currentId);
-      const nextTheme = others[Math.floor(Math.random() * others.length)];
-
-      const btn = document.getElementById('btnShuffle');
-      btn.style.transform = 'scale(0.9) rotate(12deg)';
-      setTimeout(() => { btn.style.transform = ''; }, 200);
-
-      applyFugglerTheme(nextTheme);
-    });
-
-    // 點擊吉祥物觸發有趣對話與音效
-    function makeMonsterSpeak() {
-      playChompSound();
-      const currentId = document.documentElement.getAttribute('data-theme');
-      const theme = FUGGLER_THEMES.find(t => t.id === currentId) || FUGGLER_THEMES[0];
-      const randomQuote = theme.quotes[Math.floor(Math.random() * theme.quotes.length)];
-
-      // 更新泡泡文字
-      const cornerBubble = document.getElementById('cornerBubble');
-      if (cornerBubble) {
-        cornerBubble.textContent = randomQuote;
-        cornerBubble.style.transform = 'scale(1.15)';
-        setTimeout(() => { cornerBubble.style.transform = ''; }, 300);
-      }
-
-      // 抖動動畫
-      const heroImg = document.getElementById('heroMascotImg');
-      if (heroImg) {
-        heroImg.style.transform = 'scale(1.18) rotate(10deg)';
-        setTimeout(() => { heroImg.style.transform = ''; }, 260);
-      }
-    }
-
-    document.getElementById('heroMascotBox').addEventListener('click', makeMonsterSpeak);
-    document.getElementById('cornerMonster').addEventListener('click', makeMonsterSpeak);
-    document.getElementById('logoBox').addEventListener('click', makeMonsterSpeak);
-
-    // 依 data/lessons.js 產生課程卡片，讓首頁可直接以 file:// 開啟。
     function renderLessons() {
-      const subjectMap = {
-        '數學':   { grid: 'lessons-math', count: 'count-math' },
-        '國語':   { grid: 'lessons-chinese', count: 'count-chinese' },
-        '自然':   { grid: 'lessons-science', count: 'count-science' },
-        '社會':   { grid: 'lessons-social', count: 'count-social' }
-      };
-
       const lessons = Array.isArray(window.LESSONS) ? window.LESSONS : [];
+      const published = lessons.filter(lesson => lesson.status === 'published' && lesson.youtube);
+      const socialLessons = published.filter(lesson => lesson.subject === '社會');
+      const grid = document.getElementById('lessons-social');
+      const count = document.getElementById('count-social');
+      const progress = document.getElementById('progressChip');
 
-      Object.entries(subjectMap).forEach(([subject, target]) => {
-        const grid = document.getElementById(target.grid);
-        const count = document.getElementById(target.count);
-        const subjectLessons = lessons.filter(lesson => lesson.subject === subject);
-        const publishedCount = subjectLessons.filter(lesson => lesson.status === 'published').length;
+      count.textContent = `${socialLessons.length} 個單元`;
+      progress.textContent = `冒險進度：${published.length} 個任務`;
+      grid.replaceChildren();
 
-        count.textContent = `${publishedCount} 個單元`;
-        grid.innerHTML = '';
+      if (socialLessons.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'lesson-card coming-soon';
+        empty.innerHTML = '<div class="card-title">新的社會任務準備中</div><div class="card-tags"><span class="tag">敬請期待</span></div>';
+        grid.appendChild(empty);
+        return;
+      }
 
-        if (subjectLessons.length === 0) {
-          subjectLessons.push({
-            subject,
-            unit: '準備中',
-            title: '第一部教學影片準備中',
-            tags: ['生活情境', '動畫圖解'],
-            status: 'planned',
-            youtube: ''
-          });
-        }
+      socialLessons.forEach(lesson => {
+        const card = document.createElement('a');
+        card.className = 'lesson-card';
+        card.href = lesson.youtube;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.setAttribute('aria-label', `前往 YouTube 觀看：${lesson.title}`);
 
-        subjectLessons.forEach(lesson => {
-          const isPublished = lesson.status === 'published' && lesson.youtube;
-          const card = document.createElement(isPublished ? 'a' : 'div');
-          card.className = `lesson-card${isPublished ? '' : ' coming-soon'}`;
+        const chapter = document.createElement('div');
+        chapter.className = 'card-chapter';
+        const grade = document.createElement('span');
+        grade.className = 'grade-stamp';
+        grade.textContent = lesson.grade || '四年級';
+        chapter.append(grade, document.createTextNode(lesson.unit || '新單元'));
 
-          if (isPublished) {
-            card.href = lesson.youtube;
-            card.target = '_blank';
-            card.rel = 'noopener noreferrer';
-            card.setAttribute('aria-label', `前往 YouTube 觀看：${lesson.title}`);
-          }
+        const title = document.createElement('div');
+        title.className = 'card-title';
+        title.textContent = lesson.title || '未命名課程';
 
-          const tags = Array.isArray(lesson.tags) ? lesson.tags : [];
-          card.innerHTML = `
-            ${isPublished ? '' : '<span class="coming-badge">準備中</span>'}
-            <div class="card-chapter">
-              <span class="card-fuggler-stamp">${lesson.grade || '四年級'}</span>
-              ${lesson.unit || '新單元'}
-            </div>
-            <div class="card-title">${lesson.title || '未命名課程'}</div>
-            <div class="card-tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-            ${isPublished ? '<span class="card-arrow">▶</span>' : ''}
-          `;
-          grid.appendChild(card);
+        const tags = document.createElement('div');
+        tags.className = 'card-tags';
+        (Array.isArray(lesson.tags) ? lesson.tags : []).forEach(tagText => {
+          const tag = document.createElement('span');
+          tag.className = 'tag';
+          tag.textContent = tagText;
+          tags.appendChild(tag);
         });
+
+        const watch = document.createElement('span');
+        watch.className = 'watch-label';
+        watch.textContent = '開始觀看任務影片';
+        card.append(chapter, title, tags, watch);
+        grid.appendChild(card);
       });
     }
 
-    // 啟動初始化
     renderLessons();
-    initTheme();
   </script>
 </body>
 </html>
